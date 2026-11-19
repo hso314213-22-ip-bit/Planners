@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>StudyPlanner: презентація проєкту</title>
+<style>
+:root{--bg:#fff;--fg:#1c2733;--muted:#5a6b7b;--brand:#1f3a5f;--accent:#e8731a;--card:#f3f6fa;--line:#d5dde6;--hero:#e4ecf6;--onbrand:#fff;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#10161d;--fg:#e8edf2;--muted:#9fb0c0;--brand:#8fb4e8;--accent:#f09a52;--card:#18212b;--line:#2b3846;--hero:#1a2635;--onbrand:#10161d}}
+:root[data-theme="dark"]{--bg:#10161d;--fg:#e8edf2;--muted:#9fb0c0;--brand:#8fb4e8;--accent:#f09a52;--card:#18212b;--line:#2b3846;--hero:#1a2635;--onbrand:#10161d}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.6 Georgia,"Times New Roman",serif}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:10}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:11;background:var(--bg);border-bottom:1px solid var(--line)}
+.bar{max-width:1000px;margin:0 auto;padding:12px 20px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.logo{font-weight:700;font-size:20px;color:var(--brand);text-decoration:none}
+nav{display:flex;gap:4px;flex-wrap:wrap}
+nav a{padding:6px 12px;border-radius:8px;color:var(--fg);text-decoration:none;font-size:15px}
+nav a:hover{background:var(--card)}
+nav a.on{background:var(--brand);color:var(--onbrand)}
+#burger{display:none;background:none;border:1px solid var(--line);border-radius:8px;padding:6px 10px;color:var(--fg);font-size:20px;cursor:pointer}
+@media(max-width:700px){#burger{display:block}nav{display:none;position:absolute;left:0;right:0;top:100%;background:var(--bg);border-bottom:1px solid var(--line);padding:8px 20px 12px;flex-direction:column}nav.open{display:flex}}
+main{max-width:1000px;margin:0 auto;padding:28px 20px 40px}
+section.view{display:none}section.view.on{display:block}
+h1{font-size:clamp(28px,6vw,44px);line-height:1.15;color:var(--brand);margin:0 0 12px}
+h2{font-size:26px;color:var(--brand);margin:0 0 14px}
+.hero{background:var(--hero);border-radius:16px;padding:clamp(24px,6vw,56px);text-align:center;margin-bottom:24px}
+.himg{display:block;width:100%;height:auto;max-width:760px;margin:26px auto 0;border-radius:12px}
+.hero p{max-width:560px;margin:0 auto 20px;color:var(--muted);font-size:18px}
+.btn{display:inline-block;background:var(--accent);color:#1a1209;padding:10px 22px;border-radius:10px;text-decoration:none;font-weight:700}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px}
+.card h3{margin:0 0 6px;color:var(--brand);font-size:19px}
+.card p{margin:0;color:var(--muted)}
+ul.t{list-style:none;margin:0;padding:0;border-left:3px solid var(--accent)}
+ul.t li{padding:0 0 18px 18px;position:relative}
+ul.t li::before{content:"";position:absolute;left:-9px;top:6px;width:15px;height:15px;border-radius:50%;background:var(--accent)}
+ul.t b{color:var(--brand)}
+.shot{background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.shot .top{background:var(--hero);padding:8px 12px;font-size:13px;color:var(--muted)}
+.shot .scr{padding:14px;display:grid;gap:8px}
+.shot .scr i{display:block;height:14px;border-radius:5px;background:var(--line)}
+.shot .scr i.a{background:var(--accent);width:40%}
+.shot .scr i.b{width:70%}
+.shot p{margin:0;padding:10px 14px;border-top:1px solid var(--line);font-size:14px;color:var(--muted)}
+.pic{display:block;width:100%;height:auto;border-radius:12px;border:1px solid var(--line);margin-top:18px}
+.av{width:96px;height:96px;border-radius:50%;object-fit:cover;margin-bottom:10px;display:block}
+.fig{margin:0;background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.fig img{display:block;width:100%;height:auto}
+.fig figcaption{padding:10px 14px;color:var(--muted);font-size:14px}
+.vid{aspect-ratio:16/9;background:var(--hero);border-radius:12px;display:flex;align-items:center;justify-content:center;color:var(--muted);margin-top:16px;border:1px solid var(--line)}
+footer{border-top:1px solid var(--line);text-align:center;padding:18px 20px;color:var(--muted);font-size:14px}
+dl{display:grid;grid-template-columns:max-content 1fr;gap:8px 18px;margin:0}dt{color:var(--muted)}dd{margin:0}
+@media(max-width:480px){dl{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header><div class="bar">
+<a class="logo" href="#home">StudyPlanner</a>
+<button id="burger" aria-label="Меню">≡</button>
+<nav id="nav">
+<a href="#home">Головна</a><a href="#about">Про проєкт</a><a href="#team">Команда</a><a href="#stages">Етапи й результати</a><a href="#gallery">Галерея</a><a href="#contacts">Контакти</a>
+</nav></div></header>
+<main>
+<section class="view" id="home">
+<div class="hero"><h1>Плануй навчання легко</h1><p>StudyPlanner: вебзастосунок, який допомагає студенту об’єднати розклад, завдання та нагадування в одному місці.</p><a class="btn" href="#about">Дізнатися більше</a></div>
+<div class="grid">
+<div class="card"><h3>Розклад</h3><p>Заняття на тиждень в одному зручному поданні.</p></div>
+<div class="card"><h3>Завдання</h3><p>Список справ із термінами та пріоритетами.</p></div>
+<div class="card"><h3>Нагадування</h3><p>Сповіщення, щоб не пропустити дедлайн.</p></div>
+</div></section>
+
+<section class="view" id="about">
+<h2>Про проєкт</h2>
+<div class="grid">
+<div class="card"><h3>Проблема</h3><p>Студенти тримають розклад, дедлайни та нотатки в різних місцях, через що забувають про важливі терміни.</p></div>
+<div class="card"><h3>Ідея</h3><p>Єдиний простий інструмент, який показує, що і коли потрібно зробити.</p></div>
+<div class="card"><h3>Аудиторія</h3><p>Студенти коледжів та університетів, які хочуть краще керувати часом.</p></div>
+</div>
+
+<h2 style="margin-top:24px">Основні функції</h2>
+<ul><li>Тижневий розклад занять</li><li>Список завдань із термінами</li><li>Нагадування про дедлайни</li><li>Адаптивний інтерфейс для комп’ютера та смартфона</li></ul>
+</section>
+
+<section class="view" id="team">
+<h2>Команда</h2>
+<div class="grid"><div class="card"><h3>Григор’єва Софія</h3><p>Авторка проєкту, група 22-ІП. Планування, наповнення та оформлення сайту.</p></div></div>
+</section>
+
+<section class="view" id="stages">
+<h2>Етапи й результати</h2>
+<ul class="t">
+<li><b>Аналіз потреб.</b> Визначено проблему та цільову аудиторію.</li>
+<li><b>Планування.</b> Складено структуру та перелік функцій.</li>
+<li><b>Макети.</b> Створено ескізи головної сторінки для ПК і смартфона.</li>
+<li><b>Реалізація.</b> Підготовлено тексти, графіку та оформлення.</li>
+<li><b>Перевірка.</b> Протестовано сторінки, посилання й адаптивність.</li>
+<li><b>Публікація.</b> Сайт доступний за посиланням.</li>
+</ul></section>
+
+<section class="view" id="gallery">
+<h2>Галерея</h2>
+<div class="grid">
+<div class="shot"><div class="top">Розклад</div><div class="scr"><i class="a"></i><i></i><i class="b"></i><i></i></div><p>Екран тижневого розкладу</p></div>
+<div class="shot"><div class="top">Завдання</div><div class="scr"><i class="b"></i><i></i><i class="a"></i><i class="b"></i></div><p>Список завдань</p></div>
+<div class="shot"><div class="top">Нагадування</div><div class="scr"><i></i><i class="a"></i><i class="b"></i><i></i></div><p>Налаштування сповіщень</p></div>
+</div>
+</section>
+
+<section class="view" id="contacts">
+<h2>Контакти</h2>
+<div class="card"><dl><dt>Авторка</dt><dd>Григор’єва Софія</dd><dt>Група</dt><dd>22-ІП</dd><dt>Навчальний заклад</dt><dd>Рівненський фаховий коледж НУБіП України</dd></dl></div>
+</section>
+</main>
+<footer>© 2026 StudyPlanner. Навчальний проєкт, група 22-ІП</footer>
+<script>
+var views=["home","about","team","stages","gallery","contacts"];
+function show(){var h=(location.hash||"").replace("#","");if(views.indexOf(h)<0)h="home";
+views.forEach(function(v){document.getElementById(v).classList.toggle("on",v===h)});
+document.querySelectorAll("nav a").forEach(function(a){a.classList.toggle("on",a.getAttribute("href")==="#"+h)});
+document.getElementById("nav").classList.remove("open");window.scrollTo(0,0)}
+window.addEventListener("hashchange",show);show();
+document.getElementById("burger").onclick=function(){document.getElementById("nav").classList.toggle("open")};
+</script>
+</body>
+</html>
